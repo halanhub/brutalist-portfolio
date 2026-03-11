@@ -35,7 +35,7 @@ const Hero = () => {
       {/* Main content */}
       <div className="relative z-10 max-w-[90vw]">
         <p className="font-mono-jb text-[10px] md:text-xs tracking-[0.3em] text-muted-foreground mb-6 uppercase">
-          Portfolio / 2024 — Present
+          Portfolio / 2024 - Present
         </p>
 
         <h1 className="font-grotesk font-bold text-[12vw] md:text-[9vw] lg:text-[8rem] leading-[0.85] uppercase tracking-[-0.03em] text-foreground">

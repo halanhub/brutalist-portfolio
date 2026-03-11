@@ -1,0 +1,120 @@
+Ham pus Lang
+ 
+Softw ar e De veloper  
+Tbilisi,  Geor gia | Phone:  +995  551  086  429  | Email:  me@hampuslang.com      
+Link edIn  | Portf olio  | GitHub   
+ 
+Professional Sum m ary
+ 
+Frontend developer building and maintaining web applications using React, JavaScript, and 
+TypeScript. Experience working with Firebase for authentication, database management, 
+and subscription-based access control in live production projects. 
+Swedish citizen currently based in Tbilisi, Georgia, with a background in electrical 
+infrastructure and SaaS environments, bringing structured problem-solving and strong 
+communication skills into software development. 
+ 
+Projects
+ 
+Geor gian  Language    Learning   Platform   – geor gianlanguage   .online  
+Founder & Full-Stack Developer 
+Designed and developed a subscription-based language learning platform built with React 
+and TypeScript. 
+Implemented Firebase (Authentication, Firestore, Storage, Hosting) to manage users and 
+secure lesson access. 
+Integrated Dodo Payments with webhook handling to automate recurring subscriptions and 
+control premium content access. 
+Developed protected routes and structured access logic based on user subscription status. 
+Continuously expand the platform with new lessons, quizzes, and interactive learning tools. 
+----------------Page (0) Break----------------
+ 
+Amindi24    – amindi24.ge    
+Frontend Developer 
+Built a real-time weather platform delivering localized forecasts through external weather 
+API integration. 
+Structured asynchronous data handling and optimized rendering for performance. 
+Implemented caching logic to reduce unnecessary API calls and improve loading speed. 
+Designed a responsive interface focused on clarity and fast access to weather information. 
+ 
+Young  Scientists  – youngscientists.ge    
+Frontend Developer 
+Developed an informational platform supporting academic and scientific initiatives. 
+Designed structured, content-focused layouts emphasizing readability and accessibility. 
+Implemented responsive design to ensure usability across devices and organized content 
+architecture for maintainability and future expansion. 
+ 
+Nor dic-EL  – nor dic-el.se  
+Frontend Developer 
+Designed and developed a professional website for a Swedish electrical installation 
+company. 
+Built a responsive, SEO-conscious interface using semantic HTML, CSS, and JavaScript. 
+Implemented a structured contact form to streamline inquiries and lead generation. 
+Deployed and maintained via Netlify with performance optimization. 
+ 
+ 
+ 
+ 
+----------------Page (1) Break----------------
+Experience
+ 
+Hig h Voltage  Electrician  – Kr aftringen  Servic e AB,  Hässleholm,   Sweden  
+December 2021 – January 2025 
+Performed maintenance and new construction of overhead and underground power lines. 
+Installed and maintained transformers, cables, and electrical systems while ensuring strict 
+safety standards. 
+ 
+Customer   Suc cess Agent  – Visma  SP CS, Växjö , Sweden  
+May 2019 – November 2020 
+Provided technical and product support for payroll and accounting software. 
+Maintained high customer satisfaction while identifying upsell opportunities. 
+ 
+Account  Manager   – Enir o AB  Sweden,  Växjö , Sweden  
+October 2017 – April 2019 
+Sold digital marketing solutions including SEO and paid advertising. 
+Promoted from retention to new business sales within four months. 
+ 
+Customer   Support   Technician   – W ebhelp   Nor dic (Canal  Digital),  Kalmar , 
+Sweden  
+September 2016 – September 2017 
+Provided technical troubleshooting and customer support, specializing in retention and 
+contract renewals. 
+ 
+Servic e Technician   – Avent, Kalmar/Ny   br o, Sweden  
+January 2015 – December 2016 
+Installed and serviced ventilation systems and electrical components for corporate and 
+private clients. 
+----------------Page (2) Break----------------
+ 
+Education
+ 
+Frontend  De velopment    – Nor off School  of  Technology   and  Digital  Media,   
+Remot  e  
+Ongoing 
+Focused on modern frontend development including JavaScript, React, TypeScript, API 
+integration, version control (Git), and agile workflow 
+ 
+Hig her  Vocational  Education   Diploma   in  Hig h Voltage  Electrical   Engineering   – 
+Teknikhögsk   olan,  Lund,  Sweden  
+Advanced training in high-voltage systems, power distribution, electrical infrastructure, 
+safety standards, diagnostics, and project-based field work.. 
+ 
+Electricity  & Ener gy  Pr ogr am  – Lars  Kagg  School,  Kalmar , Sweden  
+Graduated 
+Coursework included programming fundamentals, IT systems, automation, electronics, and 
+energy technology.. 
+ 
+Technical Skills
+ 
+HTML | CSS | JavaScript | TypeScript | React | Firebase | GitHub | Netlify | Figma 
+ 
+Languages
+ 
+Swedish – Native 
+English – Advanced (C1) 
+Georgian – Beginner (A1) 
+ 
+ 
+----------------Page (3) Break----------------
+References
+ 
+Available upon request. 
+----------------Page (4) Break----------------

@@ -52,10 +52,10 @@ const Contact = () => {
       {/* Footer */}
       <div className="border-t border-foreground/10 px-6 md:px-12 py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div className="font-mono-jb text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-          © 2024 ALEX MERCER — ALL RIGHTS RESERVED
+          © 2024 ALEX MERCER - ALL RIGHTS RESERVED
         </div>
         <div className="font-mono-jb text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-          NEW YORK, NY — 40.7128° N, 74.0060° W
+          NEW YORK, NY - 40.7128° N, 74.0060° W
         </div>
       </div>
     </section>

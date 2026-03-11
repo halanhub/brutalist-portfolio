@@ -44,7 +44,7 @@ const Philosophy = () => {
           </blockquote>
 
           <p className="font-mono-jb text-xs text-muted-foreground mt-12 tracking-[0.2em] uppercase">
-            — A.M., On purpose and permanence
+            - A.M., On purpose and permanence
           </p>
         </div>
       </div>

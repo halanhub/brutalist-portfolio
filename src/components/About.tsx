@@ -32,14 +32,12 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4">
           {/* Image placeholder */}
           <div className="md:col-span-4 md:col-start-1">
-            <div className="aspect-[3/4] bg-foreground/5 border border-foreground/20 relative">
-              <div className="absolute inset-0 flex items-center justify-center font-mono-jb text-[10px] text-muted-foreground tracking-widest uppercase">
-                [PORTRAIT]
-              </div>
+            <div className="aspect-[3/4] bg-foreground/5 border border-foreground/20 relative overflow-hidden">
+              <img src="/assets/profilewebp.webp" alt="Portrait" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute -bottom-3 -right-3 w-full h-full border border-foreground/10" />
             </div>
             <p className="font-mono-jb text-[10px] text-muted-foreground mt-4 tracking-widest">
-              FIG.01 — SELF, 2024
+              FIG.01 - SELF, 2024
             </p>
           </div>
 
@@ -55,15 +53,10 @@ const About = () => {
             </p>
 
             <p className="text-sm md:text-base leading-relaxed text-muted-foreground max-w-lg mb-6">
-              Swedish frontend developer building web applications with React, 
-              TypeScript, and Firebase. I craft interfaces that are functional, 
-              fast, and uncompromising — code with the same precision I once brought 
-              to high-voltage electrical systems.
+              Frontend developer building and maintaining web applications using React, JavaScript, and TypeScript. Experience working with Firebase for authentication, database management, and subscription-based access control in live production projects. 
             </p>
             <p className="text-sm md:text-base leading-relaxed text-muted-foreground max-w-lg">
-              Previously a High Voltage Electrician, I traded cables for components 
-              and circuit boards for component trees. The discipline stayed — the 
-              medium changed. Every line of code is intentional.
+              Swedish citizen currently based in Tbilisi, Georgia, with a background in electrical infrastructure and SaaS environments, bringing structured problem-solving and strong communication skills into software development.
             </p>
 
             <div className="mt-10 pt-6 border-t border-foreground/10">

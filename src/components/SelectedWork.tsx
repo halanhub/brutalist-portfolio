@@ -18,28 +18,39 @@ const useReveal = () => {
 
 const projects = [
   {
-    title: "VOID STUDIO",
-    category: "BRANDING",
+    title: "GEORGIAN LANGUAGE",
+    category: "PLATFORM",
     year: "2024",
-    description: "Complete brand identity for a Berlin-based architecture firm. Minimal, monolithic, unapologetic.",
+    description: "Comprehensive language learning platform. Structured progression, interactive quizzes, and premium audio playback guiding learners from beginner to intermediate.",
+    image: "/assets/projects/georgian-language-webiste.webp"
   },
   {
-    title: "NERVE MAG",
-    category: "EDITORIAL",
+    title: "AMINDI24",
+    category: "WEATHER DATA",
     year: "2023",
-    description: "Art direction and layout system for an independent culture magazine. Raw typography meets controlled chaos.",
+    description: "Localized weather forecasting interface across Georgia. Real-time API integration, regional insights, and a clean, data-driven responsive design.",
+    image: "/assets/projects/amindi24.webp"
   },
   {
-    title: "FORM/LESS",
-    category: "VISUAL IDENTITY",
+    title: "YOUNG SCIENTISTS",
+    category: "PORTAL",
     year: "2023",
-    description: "Identity system for a contemporary art gallery. Deconstructed grid, fluid marks, systematic variation.",
+    description: "Official academic portal for the Georgian National Academy of Sciences. Structured information architecture, event management, and accessibility-first design.",
+    image: "/assets/projects/youngscientists.webp"
   },
   {
-    title: "BLACKPINE",
-    category: "UI / DIGITAL",
+    title: "NORDIC EL",
+    category: "DIGITAL PRESENCE",
     year: "2022",
-    description: "Digital experience for a luxury outerwear brand. Dark, immersive, brutally elegant.",
+    description: "Conversion-focused digital presence for Swedish electrical contractors. Clean, mobile-first experience designed to streamline local service inquiries.",
+    image: "/assets/projects/nordic-el.webp"
+  },
+  {
+    title: "OPUS EDU",
+    category: "DASHBOARD",
+    year: "2022",
+    description: "Modular dashboard interface for educators. Strongly-typed architecture prioritizing simplicity, hierarchical clarity, and extendable scalability.",
+    image: "/assets/projects/opusedu.webp"
   },
 ];
 
@@ -65,8 +76,14 @@ const SelectedWork = () => {
               <div className={`grid grid-cols-1 md:grid-cols-12 gap-4 p-6 md:p-8 ${i % 2 !== 0 ? 'md:text-right' : ''}`}>
                 {/* Project image placeholder */}
                 <div className={`md:col-span-4 ${i % 2 !== 0 ? 'md:col-start-9 md:order-last' : 'md:col-start-1'}`}>
-                  <div className="aspect-[16/10] bg-foreground/5 group-hover:bg-primary-foreground/10 border border-foreground/10 group-hover:border-primary-foreground/20 flex items-center justify-center transition-all duration-200">
-                    <span className="font-mono-jb text-[10px] tracking-widest text-muted-foreground group-hover:text-primary-foreground/50 uppercase">
+                  <div className="aspect-[16/10] bg-foreground/5 group-hover:bg-primary-foreground/10 border border-foreground/10 group-hover:border-primary-foreground/20 flex items-center justify-center transition-all duration-500 overflow-hidden relative">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 mix-blend-luminosity group-hover:grayscale-0 group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-background/20 group-hover:bg-transparent transition-colors duration-500" />
+                    <span className="relative z-10 font-mono-jb text-[10px] tracking-widest text-foreground group-hover:text-transparent uppercase transition-colors duration-500 mix-blend-difference drop-shadow-md bg-background/60 px-2 py-1">
                       [{String(i + 1).padStart(2, "0")}]
                     </span>
                   </div>
@@ -92,7 +109,7 @@ const SelectedWork = () => {
                   </p>
 
                   <span className="font-grotesk text-xs tracking-[0.2em] uppercase group-hover:tracking-[0.4em] transition-all duration-200">
-                    VIEW PROJECT →
+                    VIEW PROJECT -
                   </span>
                 </div>
               </div>
