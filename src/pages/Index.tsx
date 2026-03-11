@@ -8,7 +8,7 @@ import Contact from "@/components/Contact";
 
 const Index = () => {
   return (
-    <div className="bg-background text-foreground min-h-screen selection:bg-accent selection:text-accent-foreground">
+    <div className="bg-background text-foreground min-h-screen selection:bg-accent selection:text-accent-foreground overflow-x-hidden">
       <Nav />
       <Hero />
       <About />

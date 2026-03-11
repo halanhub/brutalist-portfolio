@@ -20,7 +20,7 @@ const About = () => {
   const { ref, visible } = useReveal();
 
   return (
-    <section id="about" className="px-6 md:px-12 py-24 md:py-40 border-t border-foreground/10">
+    <section id="about" className="px-4 sm:px-6 md:px-12 py-16 sm:py-24 md:py-40 border-t border-foreground/10">
       <div ref={ref} className={visible ? "animate-reveal" : "opacity-0"}>
         {/* Section label */}
         <div className="flex items-center gap-4 mb-16 md:mb-24">
@@ -48,26 +48,26 @@ const About = () => {
               <br />
               LANG
             </h2>
-            <p className="font-mono-jb text-[10px] tracking-[0.3em] text-accent uppercase mb-8">
+            <p className="font-mono-jb text-[10px] tracking-[0.3em] text-foreground/90 uppercase mb-8">
               Frontend Developer · Tbilisi, Georgia
             </p>
 
-            <p className="text-sm md:text-base leading-relaxed text-muted-foreground max-w-lg mb-6">
+            <p className="text-base sm:text-sm md:text-base leading-relaxed text-muted-foreground max-w-lg mb-6">
               Frontend developer building and maintaining web applications using React, JavaScript, and TypeScript. Experience working with Firebase for authentication, database management, and subscription-based access control in live production projects. 
             </p>
-            <p className="text-sm md:text-base leading-relaxed text-muted-foreground max-w-lg">
+            <p className="text-base sm:text-sm md:text-base leading-relaxed text-muted-foreground max-w-lg">
               Swedish citizen currently based in Tbilisi, Georgia, with a background in electrical infrastructure and SaaS environments, bringing structured problem-solving and strong communication skills into software development.
             </p>
 
             <div className="mt-10 pt-6 border-t border-foreground/10">
-              <div className="grid grid-cols-2 gap-4 font-mono-jb text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+              <div className="grid grid-cols-2 gap-4 font-mono-jb text-[10px] tracking-[0.2em] uppercase text-foreground/80">
                 <div>
-                  <span className="block text-foreground text-xs font-grotesk mb-1">SWEDEN → GEORGIA</span>
-                  RELOCATED
+                  <span className="block text-foreground text-sm font-grotesk font-semibold mb-1">SWEDEN → GEORGIA</span>
+                  <span className="text-muted-foreground">RELOCATED</span>
                 </div>
                 <div>
-                  <span className="block text-foreground text-xs font-grotesk mb-1">ELECTRICIAN → DEV</span>
-                  CAREER SHIFT
+                  <span className="block text-foreground text-sm font-grotesk font-semibold mb-1">ELECTRICIAN → DEV</span>
+                  <span className="text-muted-foreground">CAREER SHIFT</span>
                 </div>
               </div>
             </div>

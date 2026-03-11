@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 pt-20 pb-12 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col justify-start sm:justify-center px-4 sm:px-6 md:px-12 pt-20 pb-24 sm:pb-12 overflow-hidden">
       {/* Grid overlay lines */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute left-[20%] top-0 bottom-0 w-px bg-foreground/5" />
@@ -10,8 +10,8 @@ const Hero = () => {
         <div className="absolute top-[70%] left-0 right-0 h-px bg-foreground/5" />
       </div>
 
-      {/* Rotating stamp */}
-      <div className="absolute top-24 right-8 md:right-20 w-28 h-28 md:w-36 md:h-36">
+      {/* Rotating stamp - hidden on mobile */}
+      <div className="hidden sm:block absolute top-20 right-8 md:right-20 w-28 h-28 md:w-36 md:h-36">
         <div className="animate-spin-slow w-full h-full relative">
           <svg viewBox="0 0 200 200" className="w-full h-full">
             <defs>
@@ -53,7 +53,7 @@ const Hero = () => {
 
           <a
             href="#work"
-            className="inline-flex items-center gap-3 border-2 border-foreground px-6 py-3 font-grotesk text-xs tracking-[0.2em] uppercase text-foreground hover:bg-foreground hover:text-primary-foreground transition-colors duration-150 w-fit"
+            className="inline-flex items-center justify-center gap-3 border-2 border-foreground px-6 py-4 sm:py-3 font-grotesk text-xs tracking-[0.2em] uppercase text-foreground hover:bg-foreground hover:text-primary-foreground transition-colors duration-150 w-fit min-h-[48px]"
           >
             VIEW WORK <span className="text-lg leading-none">↓</span>
           </a>
@@ -61,7 +61,7 @@ const Hero = () => {
       </div>
 
       {/* Bottom bar */}
-      <div className="absolute bottom-6 left-6 md:left-12 right-6 md:right-12 flex justify-between items-center font-mono-jb text-[10px] text-muted-foreground tracking-[0.2em] uppercase">
+      <div className="absolute bottom-6 left-4 right-4 sm:left-6 sm:right-6 md:left-12 md:right-12 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 font-mono-jb text-xs sm:text-[10px] text-muted-foreground tracking-[0.2em] uppercase">
         <span>Based in Tbilisi, Georgia</span>
         <span>Scroll to explore</span>
       </div>

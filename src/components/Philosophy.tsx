@@ -20,7 +20,7 @@ const Philosophy = () => {
   const { ref, visible } = useReveal();
 
   return (
-    <section className="px-6 md:px-12 py-32 md:py-48 border-t border-foreground/10">
+    <section className="px-4 sm:px-6 md:px-12 py-20 sm:py-32 md:py-48 border-t border-foreground/10">
       <div ref={ref} className={visible ? "animate-reveal" : "opacity-0"}>
         <div className="flex items-center gap-4 mb-16 md:mb-24">
           <span className="font-mono-jb text-[10px] tracking-[0.3em] text-muted-foreground">004</span>
@@ -29,23 +29,13 @@ const Philosophy = () => {
         </div>
 
         <div className="max-w-5xl">
-          <blockquote className="font-grotesk text-3xl md:text-5xl lg:text-7xl font-bold uppercase leading-[0.95] tracking-tight">
-            "GOOD DESIGN IS
+          <blockquote className="font-grotesk text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold uppercase leading-[0.95] tracking-tight">
+            "FIRST MAKE IT
             <br />
-            NOT ABOUT BEING
+            <span className="text-accent">WORK</span>. THEN MAKE IT
             <br />
-            <span className="text-accent">LIKED</span>. IT'S ABOUT
-            <br />
-            BEING{" "}
-            <span className="inline-block border-b-4 border-foreground pb-1">
-              REMEMBERED
-            </span>
-            ."
+            BEAUTIFUL          ."
           </blockquote>
-
-          <p className="font-mono-jb text-xs text-muted-foreground mt-12 tracking-[0.2em] uppercase">
-            - A.M., On purpose and permanence
-          </p>
         </div>
       </div>
     </section>
