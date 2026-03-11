@@ -2,7 +2,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import SelectedWork from "@/components/SelectedWork";
-import Services from "@/components/Services";
+import Skills from "@/components/Skills";
 import Philosophy from "@/components/Philosophy";
 import Contact from "@/components/Contact";
 
@@ -13,7 +13,7 @@ const Index = () => {
       <Hero />
       <About />
       <SelectedWork />
-      <Services />
+      <Skills />
       <Philosophy />
       <Contact />
     </div>

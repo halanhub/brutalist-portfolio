@@ -12,7 +12,7 @@ const Nav = () => {
   const links = [
     { label: "ABOUT", href: "#about" },
     { label: "WORK", href: "#work" },
-    { label: "SERVICES", href: "#services" },
+    { label: "SKILLS", href: "#skills" },
     { label: "CONTACT", href: "#contact" },
   ];
 
@@ -23,7 +23,7 @@ const Nav = () => {
       }`}
     >
       <a href="#" className="text-foreground font-bold text-sm tracking-[0.15em]">
-        ALEX MERCER
+        HAMPUS LANG
       </a>
       <div className="hidden md:flex gap-8">
         {links.map((l) => (

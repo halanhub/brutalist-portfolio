@@ -22,7 +22,7 @@ const Hero = () => {
             </defs>
             <text className="fill-foreground text-[14px] font-grotesk uppercase tracking-[0.35em]">
               <textPath href="#circlePath">
-                DESIGNER • ART DIRECTOR • CREATIVE •&nbsp;
+                FRONTEND • DEVELOPER • CREATIVE •&nbsp;
               </textPath>
             </text>
           </svg>
@@ -39,16 +39,16 @@ const Hero = () => {
         </p>
 
         <h1 className="font-grotesk font-bold text-[12vw] md:text-[9vw] lg:text-[8rem] leading-[0.85] uppercase tracking-[-0.03em] text-foreground">
-          ALEX
+          HAMPUS
           <br />
-          <span className="inline-block ml-[5vw] md:ml-[8vw]">MERCER</span>
+          <span className="inline-block ml-[5vw] md:ml-[8vw]">LANG</span>
         </h1>
 
         <div className="mt-8 md:mt-12 flex flex-col md:flex-row md:items-end gap-6 md:gap-16">
           <p className="font-mono-jb text-xs md:text-sm leading-relaxed text-muted-foreground max-w-md">
-            Designing bold visual systems and identities
+            Building fast, functional web applications
             <br />
-            for brands that refuse to blend in.
+            with React, TypeScript & Firebase.
           </p>
 
           <a
@@ -62,7 +62,7 @@ const Hero = () => {
 
       {/* Bottom bar */}
       <div className="absolute bottom-6 left-6 md:left-12 right-6 md:right-12 flex justify-between items-center font-mono-jb text-[10px] text-muted-foreground tracking-[0.2em] uppercase">
-        <span>Based in New York</span>
+        <span>Based in Tbilisi, Georgia</span>
         <span>Scroll to explore</span>
       </div>
 
