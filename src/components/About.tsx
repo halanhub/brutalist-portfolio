@@ -45,33 +45,36 @@ const About = () => {
 
           {/* Bio text */}
           <div className="md:col-span-6 md:col-start-7 flex flex-col justify-center">
-            <h2 className="font-grotesk text-3xl md:text-5xl lg:text-6xl font-bold uppercase leading-[0.9] tracking-tight mb-8">
-              I DESIGN
+            <h2 className="font-grotesk text-3xl md:text-5xl lg:text-6xl font-bold uppercase leading-[0.9] tracking-tight mb-4">
+              HAMPUS
               <br />
-              FOR THOSE
-              <br />
-              <span className="text-accent">WHO DARE</span>
+              LANG
             </h2>
+            <p className="font-mono-jb text-[10px] tracking-[0.3em] text-accent uppercase mb-8">
+              Frontend Developer · Tbilisi, Georgia
+            </p>
+
             <p className="text-sm md:text-base leading-relaxed text-muted-foreground max-w-lg mb-6">
-              I'm a designer and art director based in New York, specializing in
-              brand identity, visual systems, and editorial design. I work with
-              brands, studios, and individuals who want to stand apart — not fit in.
+              Swedish frontend developer building web applications with React, 
+              TypeScript, and Firebase. I craft interfaces that are functional, 
+              fast, and uncompromising — code with the same precision I once brought 
+              to high-voltage electrical systems.
             </p>
             <p className="text-sm md:text-base leading-relaxed text-muted-foreground max-w-lg">
-              Every project is an exercise in tension: between restraint and expression,
-              structure and chaos, clarity and mystery. I don't design to decorate.
-              I design to provoke.
+              Previously a High Voltage Electrician, I traded cables for components 
+              and circuit boards for component trees. The discipline stayed — the 
+              medium changed. Every line of code is intentional.
             </p>
 
             <div className="mt-10 pt-6 border-t border-foreground/10">
               <div className="grid grid-cols-2 gap-4 font-mono-jb text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
                 <div>
-                  <span className="block text-foreground text-xs font-grotesk mb-1">8+</span>
-                  YEARS EXPERIENCE
+                  <span className="block text-foreground text-xs font-grotesk mb-1">SWEDEN → GEORGIA</span>
+                  RELOCATED
                 </div>
                 <div>
-                  <span className="block text-foreground text-xs font-grotesk mb-1">40+</span>
-                  PROJECTS DELIVERED
+                  <span className="block text-foreground text-xs font-grotesk mb-1">ELECTRICIAN → DEV</span>
+                  CAREER SHIFT
                 </div>
               </div>
             </div>
