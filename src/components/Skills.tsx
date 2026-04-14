@@ -19,6 +19,8 @@ const useReveal = () => {
 const techStack = [
   { name: "HTML", icon: "html" },
   { name: "CSS", icon: "css" },
+  { name: "Bootstrap", icon: "bootstrap" },
+  { name: "Tailwind", icon: "tailwind" },
   { name: "JavaScript", icon: "js" },
   { name: "TypeScript", icon: "ts" },
   { name: "React", icon: "react" },
