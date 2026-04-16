@@ -51,15 +51,20 @@ const projects = [
   {
     title: "GEORGIAN LANGUAGE",
     category: "PLATFORM",
-    year: "2024",
     description: "Comprehensive language learning platform. Structured progression, interactive quizzes, and premium audio playback guiding learners from beginner to intermediate.",
-    image: "/assets/projects/georgian-language-webiste.webp",
+    image: "/assets/projects/georgianlanguage.webp",
     url: "https://georgianlanguage.online/",
+  },
+  {
+    title: "VAULT.ENV",
+    category: "DEVELOPER TOOL",
+    description: "Workflow-focused tooling for environment configuration and secrets. Clear structure, safe defaults, and a developer-first experience from local setup to deployment.",
+    image: "/assets/projects/vault-env.webp",
+    url: "https://github.com/halanhub/Vault.env",
   },
   {
     title: "AMINDI24",
     category: "WEATHER DATA",
-    year: "2023",
     description: "Localized weather forecasting interface across Georgia. Real-time API integration, regional insights, and a clean, data-driven responsive design.",
     image: "/assets/projects/amindi24.webp",
     url: "https://amindi24.ge/",
@@ -67,15 +72,13 @@ const projects = [
   {
     title: "YOUNG SCIENTISTS",
     category: "PORTAL",
-    year: "2023",
     description: "Official academic portal for the Georgian National Academy of Sciences. Structured information architecture, event management, and accessibility-first design.",
-    image: "/assets/projects/youngscientists.webp",
+    image: "/assets/projects/Young-scientists.webp",
     url: "https://youngscientists.ge/",
   },
   {
     title: "NORDIC EL",
     category: "DIGITAL PRESENCE",
-    year: "2022",
     description: "Conversion-focused digital presence for Swedish electrical contractors. Clean, mobile-first experience designed to streamline local service inquiries.",
     image: "/assets/projects/nordic-el.webp",
     url: "https://nordic-el.se/",
@@ -83,7 +86,6 @@ const projects = [
   {
     title: "OPUS EDU",
     category: "DASHBOARD",
-    year: "2022",
     description: "Modular dashboard interface for educators. Strongly-typed architecture prioritizing simplicity, hierarchical clarity, and extendable scalability.",
     image: "/assets/projects/opusedu.webp",
     url: "https://opusedu.ge/",
@@ -121,28 +123,22 @@ const SelectedWork = () => {
               <div className={`grid grid-cols-1 md:grid-cols-12 gap-4 p-4 sm:p-6 md:p-8 ${i % 2 !== 0 ? 'md:text-right' : ''}`}>
                 {/* Project image placeholder */}
                 <div className={`md:col-span-4 ${i % 2 !== 0 ? 'md:col-start-9 md:order-last' : 'md:col-start-1'}`}>
-                  <div className="aspect-[16/10] bg-foreground/5 group-hover:bg-primary-foreground/10 border border-foreground/10 group-hover:border-primary-foreground/20 flex items-center justify-center transition-all duration-500 overflow-hidden relative">
+                  <div className="aspect-[16/10] relative overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 grayscale opacity-50 mix-blend-luminosity group-hover:grayscale-0 group-hover:opacity-100 group-hover:mix-blend-normal ${
+                      className={`absolute inset-0 w-full h-full object-contain object-center transition-all duration-500 grayscale opacity-50 mix-blend-luminosity group-hover:grayscale-0 group-hover:opacity-100 group-hover:mix-blend-normal ${
                         isActive ? "max-md:grayscale-0 max-md:opacity-100 max-md:mix-blend-normal" : ""
                       }`}
                     />
-                    <div className={`absolute inset-0 transition-colors duration-500 bg-background/20 ${
-                      isActive ? "max-md:bg-transparent" : ""
-                    } group-hover:bg-transparent`} />
                   </div>
                 </div>
 
                 {/* Project info */}
                 <div className={`md:col-span-7 flex flex-col justify-center ${i % 2 !== 0 ? 'md:col-start-1 md:items-end' : 'md:col-start-6'}`}>
-                  <div className="flex items-center gap-4 mb-3">
+                  <div className="mb-3">
                     <span className="font-mono-jb text-[10px] tracking-[0.3em] text-muted-foreground group-hover:text-primary-foreground/50">
                       {project.category}
-                    </span>
-                    <span className="font-mono-jb text-[10px] text-muted-foreground group-hover:text-primary-foreground/50">
-                      {project.year}
                     </span>
                   </div>
 
