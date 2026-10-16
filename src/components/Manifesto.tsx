@@ -1,4 +1,5 @@
 import { Fragment, useRef } from "react";
+import { asset } from "@/lib/asset";
 import { gsap, useGSAP, mq } from "@/lib/gsap";
 import { profile } from "@/data/profile";
 
@@ -9,7 +10,7 @@ const statement: Chunk[] = [
   "For three years I built and maintained power lines across southern Sweden.",
   { img: profile.portrait, alt: "", pos: "50% 38%" },
   "Now I build for the web,",
-  { img: "/assets/optimized/georgianlanguage-800.webp", alt: "", pos: "50% 35%", wide: true },
+  { img: asset("/assets/optimized/georgianlanguage-800.webp"), alt: "", pos: "50% 35%", wide: true },
   "with the same habit of checking every connection twice. Things should work under load, read clearly, and hold up long after launch.",
 ];
 

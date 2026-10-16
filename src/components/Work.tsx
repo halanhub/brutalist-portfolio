@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { asset } from "@/lib/asset";
 import { gsap, ScrollTrigger, useGSAP, ease, mq } from "@/lib/gsap";
 import { projects, srcSet, type Project } from "@/data/projects";
 
@@ -79,7 +80,7 @@ const ProjectPanel = ({ project, total }: { project: Project; total: number }) =
         >
           <div data-shot className="relative">
             <img
-              src={`/assets/optimized/${project.image}-1400.webp`}
+              src={asset(`/assets/optimized/${project.image}-1400.webp`)}
               srcSet={srcSet(project.image)}
               sizes="(min-width: 1024px) 58vw, 100vw"
               alt={project.alt}
@@ -108,7 +109,7 @@ const ProjectPanel = ({ project, total }: { project: Project; total: number }) =
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url(/assets/optimized/${project.image}-2200.webp)`,
+            backgroundImage: `url(${asset(`/assets/optimized/${project.image}-2200.webp`)})`,
             backgroundSize: `${project.detail.zoom * 100 * 1.85}% auto`,
             backgroundPosition: `${project.detail.x}% ${project.detail.y}%`,
           }}

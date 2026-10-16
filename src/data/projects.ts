@@ -1,3 +1,5 @@
+import { asset } from "@/lib/asset";
+
 export type Project = {
   slug: string;
   index: string;
@@ -152,4 +154,4 @@ export const projects: Project[] = [
 ];
 
 export const srcSet = (image: string, widths = [800, 1400, 2200]) =>
-  widths.map((w) => `/assets/optimized/${image}-${w}.webp ${w}w`).join(", ");
+  widths.map((w) => `${asset(`/assets/optimized/${image}-${w}.webp`)} ${w}w`).join(", ");

@@ -1,9 +1,11 @@
+import { asset } from "@/lib/asset";
+
 export const profile = {
   name: "Hampus Lang",
   role: "Frontend developer",
   email: "me@hampuslang.com",
-  cv: "/assets/Hampus-lang-CV.pdf",
-  portrait: "/assets/profilewebp.webp",
+  cv: asset("/assets/Hampus-lang-CV.pdf"),
+  portrait: asset("/assets/profilewebp.webp"),
   location: "Tbilisi, Georgia",
   coords: "41.7151° N, 44.8271° E",
   timeZone: "Asia/Tbilisi",
