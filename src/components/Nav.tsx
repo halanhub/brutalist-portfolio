@@ -2,9 +2,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { gsap, useGSAP, ease, scrollToTarget, ScrollSmoother, prefersReducedMotion } from "@/lib/gsap";
 import { useTbilisiTime } from "@/hooks/useTbilisiTime";
 import { profile } from "@/data/profile";
+import { projects } from "@/data/projects";
 
 const links = [
-  { label: "Work", href: "#work", note: "06 projects" },
+  { label: "Work", href: "#work", note: `${String(projects.length).padStart(2, "0")} projects` },
   { label: "Story", href: "#story", note: "Cables to code" },
   { label: "Toolkit", href: "#toolkit", note: "Stack & process" },
   { label: "Contact", href: "#contact", note: "Say hello" },
@@ -122,6 +123,14 @@ const Nav = ({ ready }: { ready: boolean }) => {
             <span data-nav-item className="label hidden xs:inline text-paper/70 tabular-nums">
               TBS {time}
             </span>
+            <a
+              data-nav-item
+              href={profile.cv}
+              download="Hampus-Lang-CV.pdf"
+              className="label wipe hidden pb-0.5 text-paper sm:inline"
+            >
+              CV ↓<span className="sr-only"> (PDF download)</span>
+            </a>
             <button
               ref={buttonRef}
               type="button"
@@ -181,6 +190,9 @@ const Nav = ({ ready }: { ready: boolean }) => {
             {profile.email}
           </a>
           <div data-menu-meta className="flex gap-6 label">
+            <a tabIndex={open ? 0 : -1} href={profile.cv} download="Hampus-Lang-CV.pdf" className="wipe">
+              CV ↓
+            </a>
             {profile.socials.map((s) => (
               <a key={s.href} tabIndex={open ? 0 : -1} href={s.href} target="_blank" rel="noopener noreferrer" className="wipe">
                 {s.label} ↗

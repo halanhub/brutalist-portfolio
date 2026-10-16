@@ -2,6 +2,7 @@ import { asset } from "@/lib/asset";
 
 export type Project = {
   slug: string;
+  /** Two-digit position, derived from the order of the list below. */
   index: string;
   title: string;
   /** One-line category shown above the title. */
@@ -24,19 +25,40 @@ export type Project = {
   detail: { x: number; y: number; zoom: number };
 };
 
-export const projects: Project[] = [
+// Order here is the order on the page.
+const list: Omit<Project, "index">[] = [
+  {
+    slug: "mr-casinos-online",
+    title: "MR Casinos Online",
+    kicker: "Casino comparison site, Sweden",
+    role: "iGaming affiliate & SEO developer",
+    lede: "A Swedish casino comparison site covering reviews, bonuses, payment methods, betting and slots, built on WordPress as part of my freelance iGaming and SEO work.",
+    points: [
+      "Custom Gutenberg theme with reusable components",
+      "ACF-powered content structures and comparison pages",
+      "Technical and on-page SEO with Rank Math and Search Console",
+      "Affiliate tracking and offer data wired in through third-party APIs",
+    ],
+    stack: ["WordPress", "Gutenberg", "ACF", "Rank Math"],
+    url: "https://mrcasinosonline.com/",
+    linkLabel: "mrcasinosonline.com",
+    image: "mrcasinosonline",
+    original: "/assets/projects/mrcasinosonline.webp",
+    alt: "MR Casinos Online homepage in Swedish: 'Bästa online casinon – jämförda och testade' above three casino bonus cards, with a Gates of Olympus slot illustration.",
+    accent: "#F2B233",
+    detail: { x: 22, y: 30, zoom: 2.3 },
+  },
   {
     slug: "georgian-language",
-    index: "01",
     title: "Georgian Learn",
     kicker: "Subscription learning platform",
     role: "Founder & full-stack developer",
     lede: "A paid platform for learning Georgian, from a free 33-letter alphabet course to lessons, quizzes and flashcards. I designed it, built it and keep adding to it.",
     points: [
       "Firebase Auth, Firestore, Storage and Hosting",
-      "Dodo Payments subscriptions with webhook handling",
-      "Routes and lessons gated by subscription status",
-      "New lessons, games and tools shipped continuously",
+      "Dodo Payments subscriptions with webhook automation",
+      "Protected routes and role-based access for free and paid users",
+      "Interactive lessons, quizzes and gamified learning",
     ],
     stack: ["React", "TypeScript", "Firebase", "Dodo Payments"],
     url: "https://georgianlanguage.online/",
@@ -49,7 +71,6 @@ export const projects: Project[] = [
   },
   {
     slug: "amindi24",
-    index: "02",
     title: "Amindi24",
     kicker: "Real-time weather for Georgia",
     role: "Frontend developer",
@@ -66,12 +87,11 @@ export const projects: Project[] = [
     image: "amindi24",
     original: "/assets/projects/amindi24.webp",
     alt: "Amindi24 homepage in Georgian, showing a grid of popular cities with temperatures and weather icons.",
-    accent: "#F5A524",
+    accent: "#3B8FD9",
     detail: { x: 30, y: 30, zoom: 2.6 },
   },
   {
     slug: "vault-env",
-    index: "03",
     title: "Vault.env",
     kicker: "Zero-knowledge secrets manager",
     role: "Personal project",
@@ -93,37 +113,35 @@ export const projects: Project[] = [
   },
   {
     slug: "young-scientists",
-    index: "04",
     title: "Young Scientists",
     kicker: "Academic council portal",
     role: "Frontend developer",
     lede: "The platform for the Council of Young Scientists at the Georgian National Academy of Sciences: council members, publications and events, organized for reading.",
     points: [
-      "Content-first layouts built for readability",
-      "Accessibility and responsive design across devices",
+      "Custom admin panel (CMS) for updating content without code changes",
+      "Content-first layouts built for readability and accessibility",
+      "Responsive UI across devices",
       "Content architecture ready to grow",
-      "Multilingual interface",
     ],
-    stack: ["Information architecture", "Accessibility", "Responsive UI"],
+    stack: ["Custom CMS", "Accessibility", "Responsive UI"],
     url: "https://youngscientists.ge/",
     linkLabel: "youngscientists.ge",
     image: "young-scientists",
     original: "/assets/projects/Young-scientists.webp",
     alt: "Young Scientists homepage with a Georgian headline in gold over a photograph of the Academy of Sciences building in Tbilisi.",
-    accent: "#D4A12A",
+    accent: "#C9A14A",
     detail: { x: 30, y: 52, zoom: 2.2 },
   },
   {
     slug: "nordic-el",
-    index: "05",
     title: "Nordic EL",
     kicker: "Electrical contractor, Sweden",
     role: "Frontend developer",
     lede: "A website for a Swedish electrical installation company. Built by someone who used to do the same job.",
     points: [
       "Semantic HTML, CSS and JavaScript",
-      "SEO-conscious, responsive interface",
-      "Structured contact form for inquiries and leads",
+      "Responsive, SEO-conscious and performance-tuned",
+      "Structured contact and inquiry system for leads",
       "Deployed and maintained on Netlify",
     ],
     stack: ["HTML", "CSS", "JavaScript", "Netlify"],
@@ -137,21 +155,28 @@ export const projects: Project[] = [
   },
   {
     slug: "opus-edu",
-    index: "06",
     title: "Opus EDU",
     kicker: "Language school website",
-    lede: "A bilingual Georgian and English site for a language school, with courses, CEFR levels and teacher profiles.",
-    points: ["Georgian and English versions", "Course and CEFR level pages", "Teacher profiles with background and approach"],
-    stack: ["Bilingual GE / EN", "Content site"],
+    role: "Frontend developer",
+    lede: "A website for a language education company offering English and Georgian courses, with programs, CEFR levels and teacher profiles.",
+    points: [
+      "Responsive UI components in React",
+      "Business requirements turned into a clear, service-led interface",
+      "Optimized for fast loading",
+      "Component architecture ready for the platform to grow",
+    ],
+    stack: ["React", "Bilingual GE / EN"],
     url: "https://opusedu.ge/",
     linkLabel: "opusedu.ge",
     image: "opusedu",
     original: "/assets/projects/opusedu.webp",
     alt: "Opus EDU teachers page with two teacher profile cards and a dark green footer.",
-    accent: "#E3A23B",
+    accent: "#E08A3C",
     detail: { x: 34, y: 42, zoom: 2.2 },
   },
 ];
+
+export const projects: Project[] = list.map((p, i) => ({ ...p, index: String(i + 1).padStart(2, "0") }));
 
 export const srcSet = (image: string, widths = [800, 1400, 2200]) =>
   widths.map((w) => `${asset(`/assets/optimized/${image}-${w}.webp`)} ${w}w`).join(", ");

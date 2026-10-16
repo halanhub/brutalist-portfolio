@@ -137,8 +137,8 @@ const Hero = ({ ready }: { ready: boolean }) => {
           From high-voltage lines to the web.
         </p>
         <p data-hero-lines className="max-w-[34ch] text-[0.95rem] leading-relaxed text-paper/70">
-          Frontend developer building subscription platforms, real-time data products and websites with React and
-          TypeScript. Swedish, based in Tbilisi.
+          Developer building subscription platforms, affiliate sites and fast, search-friendly websites with React,
+          TypeScript and WordPress. Swedish, based in Tbilisi.
         </p>
       </div>
 

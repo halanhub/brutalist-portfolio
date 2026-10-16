@@ -82,12 +82,12 @@ const Toolkit = () => {
               Tools <span className="serif-i block text-paper/70">I reach for</span>
             </h2>
             <p className="mt-8 max-w-[34ch] leading-relaxed text-paper/70">
-              A deliberately small stack: React and TypeScript at the front, Firebase or Supabase behind it, deployed on Vercel or
-              Netlify. I plan in Figma and work in Scrum or Kanban.
+              React and TypeScript for products, WordPress for content-heavy sites, Firebase behind the scenes, and SEO built in
+              from the start. Tested with Vitest and Playwright, shipped on Vercel or Netlify.
             </p>
           </div>
 
-          <div data-tools className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-4 lg:col-span-8">
+          <div data-tools className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-3 lg:col-span-8">
             {toolkit.map((group, gi) => (
               <div key={group.group}>
                 <p className="label mb-5 flex gap-2 border-b hairline pb-3 text-mute">

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { gsap, useGSAP, ease, mq } from "@/lib/gsap";
-import { profile, timeline, languages } from "@/data/profile";
+import { profile, timeline, languages, officeDog } from "@/data/profile";
 import RevealText from "@/components/RevealText";
 
 const SLATS = 7;
@@ -105,19 +105,23 @@ const Story = () => {
                   Different jobs with the same lesson: a system only matters if people can rely on it.
                 </RevealText>
                 <RevealText>
-                  Now I build web products from Tbilisi, including my own subscription platform, while studying frontend development
-                  at Noroff. I bring the electrician's habits with me: structured problem-solving, respect for
-                  safety standards, and plain communication.
+                  Now I build from Tbilisi: my own subscription platform, Georgian Language Online, and WordPress and SEO work for
+                  iGaming affiliate clients, while studying frontend development at Noroff. I bring the electrician's habits with
+                  me: structured problem-solving, respect for safety standards, and plain communication.
                 </RevealText>
               </div>
 
-              <dl className="grid grid-cols-3 gap-4 border-t border-ink/15 pt-6">
+              <dl className="grid grid-cols-2 gap-x-4 gap-y-6 border-t border-ink/15 pt-6 sm:grid-cols-4">
                 {languages.map((l) => (
                   <div key={l.name}>
                     <dt className="label text-ink/55">{l.name}</dt>
                     <dd className="serif-i mt-1 text-2xl">{l.level}</dd>
                   </div>
                 ))}
+                <div>
+                  <dt className="label text-ink/55">Office dog</dt>
+                  <dd className="serif-i mt-1 text-2xl text-arc">{officeDog}</dd>
+                </div>
               </dl>
             </div>
           </div>

@@ -24,7 +24,7 @@ const ProjectPanel = ({ project, total }: { project: Project; total: number }) =
     <div data-copy className="relative z-20 flex flex-col gap-6 lg:absolute lg:left-[var(--gutter)] lg:top-[calc(var(--nav-h)+6vh)] lg:w-[27vw] lg:max-w-[420px]">
       <div className="flex items-baseline gap-4">
         <span className="serif-i text-5xl leading-none text-[var(--accent)] lg:text-6xl">{project.index}</span>
-        <span className="label text-mute">/ 0{total}</span>
+        <span className="label text-mute">/ {String(total).padStart(2, "0")}</span>
         <span className="label ml-auto text-paper/70 lg:hidden">{project.kicker}</span>
       </div>
       <p className="label hidden text-paper/70 lg:block">{project.kicker}</p>
@@ -301,15 +301,15 @@ const Work = () => {
           {/* Title card */}
           <header className="gutter relative flex flex-col justify-center pb-8 pt-[14vh] lg:h-[100svh] lg:w-[78vw] lg:shrink-0 lg:pb-0 lg:pt-0">
             <p className="label mb-6 text-mute">
-              <span className="text-arc">●</span>&nbsp; Selected work — 06 projects
+              <span className="text-arc">●</span>&nbsp; Selected work — {String(projects.length).padStart(2, "0")} projects
             </p>
             <h2 id="work-title" className="display text-[23vw] leading-[0.78] lg:text-[16vw]">
               <span className="serif-i block text-[0.42em] leading-none text-paper/80">Selected</span>
               Builds
             </h2>
             <p className="mt-8 max-w-[38ch] text-lg leading-relaxed text-paper/70">
-              Six projects across Georgia and Sweden, from a subscription language platform to a zero-knowledge secrets
-              manager.
+              Seven projects across Sweden and Georgia, from a casino comparison site and a subscription language
+              platform to a zero-knowledge secrets manager.
             </p>
             <p className="label mt-10 hidden items-center gap-3 text-mute lg:flex">
               Keep scrolling <span aria-hidden="true" className="inline-block h-px w-16 bg-paper/40" /> →
@@ -328,7 +328,7 @@ const Work = () => {
               <span className="inline-block overflow-hidden">
                 <span data-counter className="inline-block text-paper">01</span>
               </span>
-              / 0{projects.length}
+              / {String(projects.length).padStart(2, "0")}
               <span data-name className="ml-4 text-paper/50">
                 {projects[0].title}
               </span>
