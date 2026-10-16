@@ -67,7 +67,7 @@ const ProjectPanel = ({ project, total }: { project: Project; total: number }) =
     </div>
 
     {/* Visual composition */}
-    <div className="relative mt-12 lg:absolute lg:right-[var(--gutter)] lg:top-[calc(var(--nav-h)+4vh)] lg:mt-0 lg:w-[58vw]" style={{ perspective: "1600px" }}>
+    <div className="relative mb-[24%] mt-12 md:mb-[12%] lg:absolute lg:mb-0 lg:right-[var(--gutter)] lg:top-[calc(var(--nav-h)+4vh)] lg:mt-0 lg:w-[58vw]" style={{ perspective: "1600px" }}>
       <div data-frame className="relative" style={{ transformStyle: "preserve-3d" }}>
         <a
           href={project.url}
@@ -100,24 +100,50 @@ const ProjectPanel = ({ project, total }: { project: Project; total: number }) =
         />
       </div>
 
-      {/* Loupe: a magnified crop of the same screenshot */}
-      <div
-        data-loupe
-        aria-hidden="true"
-        className="absolute -bottom-[14%] -left-[6%] z-10 hidden aspect-[4/5] w-[22%] overflow-hidden border border-[var(--accent)] bg-ink shadow-[0_30px_60px_-20px_rgba(0,0,0,0.8)] md:block"
-      >
+      {project.mobile ? (
+        // Phone: the same site captured at phone size, shown in a handset frame
         <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url(${asset(`/assets/optimized/${project.image}-2200.webp`)})`,
-            backgroundSize: `${project.detail.zoom * 100 * 1.85}% auto`,
-            backgroundPosition: `${project.detail.x}% ${project.detail.y}%`,
-          }}
-        />
-        <span className="label absolute bottom-2 left-2 bg-ink/80 px-1.5 py-0.5 text-[0.6rem] text-paper/80">
-          Detail ×{project.detail.zoom}
-        </span>
-      </div>
+          data-loupe
+          aria-hidden="true"
+          className="absolute -bottom-[26%] right-[2%] z-10 w-[31%] sm:w-[24%] md:-bottom-[16%] md:-left-[5%] md:right-auto md:w-[19%]"
+        >
+          <div className="rounded-[13%/6%] bg-[#0f0f0f] p-[3.5%] shadow-[0_40px_70px_-20px_rgba(0,0,0,0.85)] ring-1 ring-paper/20">
+            <div className="relative aspect-[390/844] overflow-hidden rounded-[10%/4.6%] bg-ink">
+              <img
+                src={asset(`/assets/optimized/${project.image}-mobile-400.webp`)}
+                srcSet={`${asset(`/assets/optimized/${project.image}-mobile-400.webp`)} 400w, ${asset(`/assets/optimized/${project.image}-mobile-800.webp`)} 800w`}
+                sizes="(min-width: 1024px) 11vw, 31vw"
+                alt=""
+                width={400}
+                height={866}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover object-top"
+              />
+            </div>
+          </div>
+          <span className="label mt-2 hidden text-[0.6rem] text-paper/60 md:block">Mobile</span>
+        </div>
+      ) : (
+        // Loupe: a magnified crop of the desktop screenshot
+        <div
+          data-loupe
+          aria-hidden="true"
+          className="absolute -bottom-[14%] -left-[6%] z-10 hidden aspect-[4/5] w-[22%] overflow-hidden border border-[var(--accent)] bg-ink shadow-[0_30px_60px_-20px_rgba(0,0,0,0.8)] md:block"
+        >
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${asset(`/assets/optimized/${project.image}-2200.webp`)})`,
+              backgroundSize: `${project.detail.zoom * 100 * 1.85}% auto`,
+              backgroundPosition: `${project.detail.x}% ${project.detail.y}%`,
+            }}
+          />
+          <span className="label absolute bottom-2 left-2 bg-ink/80 px-1.5 py-0.5 text-[0.6rem] text-paper/80">
+            Detail ×{project.detail.zoom}
+          </span>
+        </div>
+      )}
     </div>
 
     {/* Giant title — desktop scene element */}

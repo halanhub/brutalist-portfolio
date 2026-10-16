@@ -106,8 +106,8 @@ const Story = () => {
                 </RevealText>
                 <RevealText>
                   Now I build from Tbilisi: my own subscription platform, Georgian Language Online, and WordPress and SEO work for
-                  iGaming affiliate clients, while studying frontend development at Noroff. I bring the electrician's habits with
-                  me: structured problem-solving, respect for safety standards, and plain communication.
+                  iGaming affiliate clients. I bring the electrician's habits with me: structured problem-solving, respect for
+                  safety standards, and plain communication.
                 </RevealText>
               </div>
 

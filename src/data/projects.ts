@@ -21,7 +21,9 @@ export type Project = {
   alt: string;
   /** Colour sampled from the project's own interface. */
   accent: string;
-  /** Background-position (%) of the detail crop shown in the loupe plate. */
+  /** True when a phone-size capture exists in /assets/projects/mobile. */
+  mobile?: boolean;
+  /** Background-position (%) of the detail crop, used when there is no mobile capture. */
   detail: { x: number; y: number; zoom: number };
 };
 
@@ -29,6 +31,7 @@ export type Project = {
 const list: Omit<Project, "index">[] = [
   {
     slug: "mr-casinos-online",
+    mobile: true,
     title: "MR Casinos Online",
     kicker: "Casino comparison site, Sweden",
     role: "iGaming affiliate & SEO developer",
@@ -50,6 +53,7 @@ const list: Omit<Project, "index">[] = [
   },
   {
     slug: "georgian-language",
+    mobile: true,
     title: "Georgian Learn",
     kicker: "Subscription learning platform",
     role: "Founder & full-stack developer",
@@ -71,6 +75,7 @@ const list: Omit<Project, "index">[] = [
   },
   {
     slug: "amindi24",
+    mobile: true,
     title: "Amindi24",
     kicker: "Real-time weather for Georgia",
     role: "Frontend developer",
@@ -92,6 +97,7 @@ const list: Omit<Project, "index">[] = [
   },
   {
     slug: "vault-env",
+    mobile: true,
     title: "Vault.env",
     kicker: "Zero-knowledge secrets manager",
     role: "Personal project",
@@ -113,6 +119,7 @@ const list: Omit<Project, "index">[] = [
   },
   {
     slug: "young-scientists",
+    mobile: true,
     title: "Young Scientists",
     kicker: "Academic council portal",
     role: "Frontend developer",
@@ -155,6 +162,7 @@ const list: Omit<Project, "index">[] = [
   },
   {
     slug: "opus-edu",
+    mobile: true,
     title: "Opus EDU",
     kicker: "Language school website",
     role: "Frontend developer",

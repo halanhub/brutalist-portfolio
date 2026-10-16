@@ -21,6 +21,14 @@ describe("portfolio content", () => {
       }
   });
 
+  it("has phone-size derivatives for every project flagged as mobile", () => {
+    for (const p of projects.filter((p) => p.mobile))
+      for (const w of [400, 800]) {
+        const file = `/assets/optimized/${p.image}-mobile-${w}.webp`;
+        expect(existsSync(pub(file)), file).toBe(true);
+      }
+  });
+
   it("gives each project a unique slug, an https link and alt text", () => {
     expect(new Set(projects.map((p) => p.slug)).size).toBe(projects.length);
     for (const p of projects) {

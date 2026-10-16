@@ -9,6 +9,8 @@ const out = path.join(root, "optimized");
 
 const jobs = [
   { dir: "projects", widths: [800, 1400, 2200] },
+  // Phone-size captures of the live sites, shown in the phone frame.
+  { dir: "projects/mobile", widths: [400, 800], suffix: "-mobile" },
   { dir: ".", files: ["profilewebp.webp"], widths: [480, 747] },
 ];
 
@@ -18,7 +20,7 @@ for (const job of jobs) {
   const dir = path.join(root, job.dir);
   const files = job.files ?? (await readdir(dir)).filter((f) => f.endsWith(".webp"));
   for (const file of files) {
-    const base = path.basename(file, ".webp").toLowerCase();
+    const base = path.basename(file, ".webp").toLowerCase() + (job.suffix ?? "");
     for (const width of job.widths) {
       const target = path.join(out, `${base}-${width}.webp`);
       const info = await sharp(path.join(dir, file))
