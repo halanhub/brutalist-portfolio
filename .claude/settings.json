@@ -1,0 +1,16 @@
+{
+  "enabledPlugins": {
+    "gsap-scrolltrigger@claude-design-skillstack": true,
+    "threejs-webgl@claude-design-skillstack": true,
+    "react-three-fiber@claude-design-skillstack": true,
+    "motion-framer@claude-design-skillstack": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-design-skillstack": {
+      "source": {
+        "source": "github",
+        "repo": "freshtechbro/claudedesignskills"
+      }
+    }
+  }
+}
