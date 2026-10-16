@@ -12,8 +12,9 @@ export type Project = {
   lede: string;
   points: string[];
   stack: string[];
-  url: string;
-  linkLabel: string;
+  /** Public link. Omitted for private tools. */
+  url?: string;
+  linkLabel?: string;
   /** Base name of the optimized derivatives in /assets/optimized. */
   image: string;
   /** Original full-resolution file, kept for reference and fallback. */
@@ -50,6 +51,26 @@ const list: Omit<Project, "index">[] = [
     alt: "MR Casinos Online homepage in Swedish: 'Bästa online casinon – jämförda och testade' above three casino bonus cards, with a Gates of Olympus slot illustration.",
     accent: "#F2B233",
     detail: { x: 22, y: 30, zoom: 2.3 },
+  },
+  {
+    slug: "igaming-dashboard",
+    mobile: true,
+    title: "iGaming Dashboard",
+    kicker: "Affiliate operations & reporting",
+    role: "Designed and developed",
+    lede: "A private dashboard for an iGaming affiliate business. It brings affiliate performance, partner information and the team's daily work into one place.",
+    points: [
+      "Reporting on clicks, registrations, FTDs, deposits, CPA, revenue share and commission",
+      "Filters by brand, casino, network, source, currency and date, with charts and Excel/PDF exports",
+      "Data in through APIs, postback tracking, CSV imports and manual entries",
+      "Projects, tasks, shared calendars, contacts, domains, invoices and Drive files in one workspace",
+    ],
+    stack: ["React", "TypeScript", "Supabase"],
+    image: "igaming-dashboard",
+    original: "/assets/projects/igaming-dashboard.webp",
+    alt: "The dashboard's Files view: a dark sidebar with Work, Knowledge and Other sections, and a list of project folders synced from Google Drive.",
+    accent: "#34C77B",
+    detail: { x: 20, y: 30, zoom: 2.2 },
   },
   {
     slug: "georgian-language",

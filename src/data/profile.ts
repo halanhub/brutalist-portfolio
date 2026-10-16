@@ -7,7 +7,6 @@ export const profile = {
   cv: asset("/assets/Hampus-lang-CV.pdf"),
   portrait: asset("/assets/profilewebp.webp"),
   location: "Tbilisi, Georgia",
-  coords: "41.7151° N, 44.8271° E",
   timeZone: "Asia/Tbilisi",
   socials: [
     { label: "GitHub", href: "https://github.com/halanhub" },
@@ -29,7 +28,7 @@ export const timeline = [
 export const toolkit = [
   { group: "Frontend", items: ["React", "TypeScript", "JavaScript", "Vite", "HTML & CSS", "Tailwind"] },
   { group: "WordPress", items: ["Custom themes", "Gutenberg", "ACF", "Custom post types", "Migrations"] },
-  { group: "Data & APIs", items: ["Firebase", "REST APIs", "Affiliate tracking", "Async data", "Postman"] },
+  { group: "Data & APIs", items: ["Firebase", "Supabase", "REST APIs", "Affiliate tracking", "Postman"] },
   { group: "SEO", items: ["Technical SEO", "Rank Math", "Search Console", "PageSpeed"] },
   { group: "Ship & test", items: ["Git & GitHub", "Vercel", "Netlify", "Vitest", "Playwright"] },
   { group: "Visual", items: ["Photoshop", "After Effects"] },

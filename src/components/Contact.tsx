@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { gsap, useGSAP, ease, mq, scrollToTarget } from "@/lib/gsap";
 import { profile } from "@/data/profile";
-import { useTbilisiTime } from "@/hooks/useTbilisiTime";
 
 const lines = [
   { text: "Let's build", serif: false },
@@ -11,7 +10,6 @@ const lines = [
 
 const Contact = () => {
   const root = useRef<HTMLElement>(null);
-  const time = useTbilisiTime();
 
   useGSAP(
     () => {
@@ -127,9 +125,6 @@ const Contact = () => {
 
       <footer className="gutter flex flex-col gap-4 border-t hairline py-6 label text-mute md:flex-row md:items-center md:justify-between">
         <span>© {new Date().getFullYear()} Hampus Lang</span>
-        <span className="tabular-nums">
-          Tbilisi {time} — {profile.coords}
-        </span>
         <a
           href="#top"
           onClick={(e) => {

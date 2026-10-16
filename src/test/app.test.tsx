@@ -27,9 +27,9 @@ describe("homepage", () => {
 
   it("links every project to its live site in a new tab", () => {
     render(<App />);
-    for (const p of projects) {
+    for (const p of projects.filter((p) => p.url)) {
       const article = screen.getByRole("article", { name: p.title });
-      const link = within(article).getByRole("link", { name: new RegExp(p.linkLabel.replace(/[.]/g, "\\.")) });
+      const link = within(article).getByRole("link", { name: new RegExp(p.linkLabel!.replace(/[.]/g, "\\.")) });
       expect(link).toHaveAttribute("href", p.url);
       expect(link).toHaveAttribute("rel", expect.stringContaining("noopener"));
     }

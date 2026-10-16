@@ -32,7 +32,7 @@ describe("portfolio content", () => {
   it("gives each project a unique slug, an https link and alt text", () => {
     expect(new Set(projects.map((p) => p.slug)).size).toBe(projects.length);
     for (const p of projects) {
-      expect(p.url).toMatch(/^https:\/\//);
+      if (p.url) expect(p.url).toMatch(/^https:\/\//);
       expect(p.alt.length).toBeGreaterThan(20);
     }
   });

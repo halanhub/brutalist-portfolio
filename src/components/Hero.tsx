@@ -144,7 +144,7 @@ const Hero = ({ ready }: { ready: boolean }) => {
 
       <div className="relative z-20 hidden items-end justify-between pb-6 lg:flex">
         <span data-hero-meta className="label text-mute">
-          {profile.coords}
+          Based in Tbilisi
         </span>
         <span data-hero-meta className="label flex items-center gap-3 text-mute">
           Scroll for the work

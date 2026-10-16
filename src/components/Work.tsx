@@ -52,18 +52,22 @@ const ProjectPanel = ({ project, total }: { project: Project; total: number }) =
         <span className="label text-mute">{project.stack.join(" / ")}</span>
       </div>
 
-      <a
-        href={project.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group/link inline-flex w-fit items-center gap-3 border border-paper/25 px-5 py-3 label transition-colors duration-500 hover:border-[var(--accent)] hover:bg-[var(--accent)] hover:text-ink"
-      >
-        {project.linkLabel}
-        <span aria-hidden="true" className="transition-transform duration-500 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5">
-          ↗
-        </span>
-        <span className="sr-only">(opens in a new tab)</span>
-      </a>
+      {project.url ? (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group/link inline-flex w-fit items-center gap-3 border border-paper/25 px-5 py-3 label transition-colors duration-500 hover:border-[var(--accent)] hover:bg-[var(--accent)] hover:text-ink"
+        >
+          {project.linkLabel}
+          <span aria-hidden="true" className="transition-transform duration-500 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5">
+            ↗
+          </span>
+          <span className="sr-only">(opens in a new tab)</span>
+        </a>
+      ) : (
+        <p className="label w-fit border border-paper/15 px-5 py-3 text-mute">Private tool, not public</p>
+      )}
     </div>
 
     {/* Visual composition */}
@@ -71,7 +75,7 @@ const ProjectPanel = ({ project, total }: { project: Project; total: number }) =
       <div data-frame className="relative" style={{ transformStyle: "preserve-3d" }}>
         <a
           href={project.url}
-          target="_blank"
+          target={project.url ? "_blank" : undefined}
           rel="noopener noreferrer"
           tabIndex={-1}
           aria-hidden="true"
@@ -150,7 +154,7 @@ const ProjectPanel = ({ project, total }: { project: Project; total: number }) =
     <p
       aria-hidden="true"
       data-title
-      className="display pointer-events-none absolute bottom-[7vh] left-[var(--gutter)] z-30 hidden whitespace-nowrap text-[11.5vw] leading-[0.8] text-paper mix-blend-difference [--wdth:70] lg:block"
+      className="display pointer-events-none absolute bottom-[7vh] left-[var(--gutter)] z-30 hidden whitespace-nowrap text-[11.5vw] leading-[0.8] text-paper [--wdth:70] lg:block"
     >
       {project.title}
     </p>
@@ -334,8 +338,8 @@ const Work = () => {
               Builds
             </h2>
             <p className="mt-8 max-w-[38ch] text-lg leading-relaxed text-paper/70">
-              Seven projects across Sweden and Georgia, from a casino comparison site and a subscription language
-              platform to a zero-knowledge secrets manager.
+              Eight projects across Sweden and Georgia, from a casino comparison site and an affiliate dashboard to a
+              zero-knowledge secrets manager.
             </p>
             <p className="label mt-10 hidden items-center gap-3 text-mute lg:flex">
               Keep scrolling <span aria-hidden="true" className="inline-block h-px w-16 bg-paper/40" /> →
