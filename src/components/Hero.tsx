@@ -1,74 +1,161 @@
-const Hero = () => {
+import { useEffect, useRef } from "react";
+import { gsap, SplitText, useGSAP, ease, mq } from "@/lib/gsap";
+import { profile } from "@/data/profile";
+
+/** Renders a word as individually animatable letters, hidden from screen readers. */
+const Letters = ({ word }: { word: string }) => (
+  <span aria-hidden="true" className="flex">
+    {word.split("").map((c, i) => (
+      <span key={i} className="inline-block overflow-hidden pb-[0.04em] -mb-[0.04em]">
+        <span data-char className="inline-block will-change-transform">
+          {c}
+        </span>
+      </span>
+    ))}
+  </span>
+);
+
+const Hero = ({ ready }: { ready: boolean }) => {
+  const root = useRef<HTMLElement>(null);
+  const intro = useRef<gsap.core.Timeline>();
+
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+
+      mm.add(mq.motion, () => {
+        const split = SplitText.create("[data-hero-lines]", { type: "lines", mask: "lines" });
+
+        // Opening sequence — built paused, played when the preloader lifts.
+        intro.current = gsap
+          .timeline({ paused: true, defaults: { ease: ease.out } })
+          .fromTo("[data-portrait]", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.6, ease: "expo.inOut" }, 0)
+          .from("[data-portrait] img", { scale: 1.45, yPercent: 8, duration: 2.2 }, 0)
+          .from("[data-word='first'] [data-char]", { yPercent: 108, duration: 1.3, stagger: { each: 0.05, from: "start" } }, 0.35)
+          .from("[data-word='last'] [data-char]", { yPercent: -108, duration: 1.3, stagger: { each: 0.05, from: "end" } }, 0.5)
+          .fromTo("[data-word]", { "--wdth": 125 }, { "--wdth": 100, duration: 1.8, ease: "expo.out" }, 0.35)
+          .from(split.lines, { yPercent: 110, duration: 1.1, stagger: 0.08 }, 1.0)
+          .from("[data-hero-meta]", { opacity: 0, y: 14, duration: 0.9, stagger: 0.07 }, 1.1)
+          .from("[data-scroll-cue]", { scaleY: 0, transformOrigin: "top", duration: 1, ease: ease.inOut }, 1.3);
+
+        // Scroll: the name splits apart while the portrait drifts forward.
+        gsap
+          .timeline({
+            scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true },
+            defaults: { ease: "none" },
+          })
+          .to("[data-word='first']", { xPercent: -22 }, 0)
+          .to("[data-word='last']", { xPercent: 22 }, 0)
+          .to("[data-portrait]", { yPercent: 14, scale: 1.06 }, 0)
+          .to("[data-portrait] img", { scale: 1.12 }, 0)
+          .to("[data-hero-copy]", { yPercent: -40, opacity: 0 }, 0);
+
+        // Idle loop on the scroll cue.
+        gsap.to("[data-scroll-cue] span", { yPercent: 200, duration: 1.6, ease: ease.inOut, repeat: -1, delay: 2.5 });
+
+        return () => split.revert();
+      });
+
+      // Portrait follows the pointer very slightly on desktop.
+      mm.add(`${mq.motion} and ${mq.finePointer}`, () => {
+        const img = root.current!.querySelector("[data-portrait-inner]");
+        const xTo = gsap.quickTo(img, "x", { duration: 1.2, ease: ease.soft });
+        const yTo = gsap.quickTo(img, "y", { duration: 1.2, ease: ease.soft });
+        const onMove = (e: PointerEvent) => {
+          xTo((e.clientX / window.innerWidth - 0.5) * -18);
+          yTo((e.clientY / window.innerHeight - 0.5) * -12);
+        };
+        window.addEventListener("pointermove", onMove);
+        return () => window.removeEventListener("pointermove", onMove);
+      });
+
+      return () => mm.revert();
+    },
+    { scope: root },
+  );
+
+  useEffect(() => {
+    if (ready) intro.current?.play();
+  }, [ready]);
+
   return (
-    <section className="relative min-h-screen flex flex-col justify-start sm:justify-center px-4 sm:px-6 md:px-12 pt-20 pb-24 sm:pb-12 overflow-hidden">
-      {/* Grid overlay lines */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute left-[20%] top-0 bottom-0 w-px bg-foreground/5" />
-        <div className="absolute left-[50%] top-0 bottom-0 w-px bg-foreground/5" />
-        <div className="absolute left-[80%] top-0 bottom-0 w-px bg-foreground/5" />
-        <div className="absolute top-[30%] left-0 right-0 h-px bg-foreground/5" />
-        <div className="absolute top-[70%] left-0 right-0 h-px bg-foreground/5" />
-      </div>
+    <section
+      ref={root}
+      id="top"
+      aria-labelledby="hero-title"
+      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden gutter"
+      style={{ paddingTop: "calc(var(--nav-h) + 1.5rem)" }}
+    >
+      <h1 id="hero-title" className="sr-only">
+        Hampus Lang — frontend developer
+      </h1>
 
-      {/* Rotating stamp - hidden on mobile */}
-      <div className="hidden sm:block absolute top-20 right-8 md:right-20 w-28 h-28 md:w-36 md:h-36">
-        <div className="animate-spin-slow w-full h-full relative">
-          <svg viewBox="0 0 200 200" className="w-full h-full">
-            <defs>
-              <path
-                id="circlePath"
-                d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
-              />
-            </defs>
-            <text className="fill-foreground text-[14px] font-grotesk uppercase tracking-[0.35em]">
-              <textPath href="#circlePath">
-                FRONTEND • DEVELOPER • CREATIVE •&nbsp;
-              </textPath>
-            </text>
-          </svg>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-3 h-3 bg-accent" />
-          </div>
+      {/* Portrait — the original photograph, masked and lit by the page itself */}
+      <div
+        data-portrait
+        style={{ translate: "-50% -50%" }}
+        className="absolute left-1/2 top-[44%] z-10 w-[62vw] sm:w-[44vw] lg:top-1/2 lg:w-[25vw] lg:max-w-[440px]"
+      >
+        <div
+          data-portrait-inner
+          className="relative aspect-[747/965] overflow-hidden"
+          style={{
+            maskImage: "radial-gradient(68% 58% at 50% 40%, #000 45%, transparent 100%)",
+            WebkitMaskImage: "radial-gradient(68% 58% at 50% 40%, #000 45%, transparent 100%)",
+          }}
+        >
+          <img
+            src={profile.portrait}
+            alt="Portrait of Hampus Lang in a dark jacket against a black background."
+            width={747}
+            height={965}
+            {...{ fetchpriority: "high" }}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
         </div>
       </div>
 
-      {/* Main content */}
-      <div className="relative z-10 max-w-[90vw]">
-        <p className="font-mono-jb text-[10px] md:text-xs tracking-[0.3em] text-muted-foreground mb-6 uppercase">
-          Portfolio / 2024 - Present
+      {/* Name */}
+      <div aria-hidden="true" className="relative flex flex-1 flex-col justify-between py-[3vh] lg:py-[2vh]">
+        <span data-word="first" className="display relative z-20 block text-[21.2vw] leading-[0.78] text-paper">
+          <Letters word="Hampus" />
+        </span>
+        <span
+          data-word="last"
+          className="display relative z-20 mt-[58vw] block self-end text-[21.2vw] leading-[0.78] text-paper sm:mt-[40vw] lg:mt-0"
+        >
+          <Letters word="Lang" />
+        </span>
+      </div>
+
+      {/* Supporting copy */}
+      <div
+        data-hero-copy
+        className="relative z-20 grid gap-6 pb-8 pt-6 lg:absolute lg:bottom-[22vh] lg:left-[var(--gutter)] lg:w-[25vw] lg:p-0"
+      >
+        <p data-hero-lines className="serif-i text-[clamp(1.75rem,3.2vw,2.75rem)] leading-[1.02]">
+          From high-voltage lines to the web.
         </p>
-
-        <h1 className="font-grotesk font-bold text-[12vw] md:text-[9vw] lg:text-[8rem] leading-[0.85] uppercase tracking-[-0.03em] text-foreground">
-          HAMPUS
-          <br />
-          <span className="inline-block ml-[5vw] md:ml-[8vw]">LANG</span>
-        </h1>
-
-        <div className="mt-8 md:mt-12 flex flex-col md:flex-row md:items-end gap-6 md:gap-16">
-          <p className="font-mono-jb text-xs md:text-sm leading-relaxed text-muted-foreground max-w-md">
-            Building fast, functional web applications
-            <br />
-            with React, TypeScript & Firebase.
-          </p>
-
-          <a
-            href="#work"
-            className="inline-flex items-center justify-center gap-3 border-2 border-foreground px-6 py-4 sm:py-3 font-grotesk text-xs tracking-[0.2em] uppercase text-foreground hover:bg-foreground hover:text-primary-foreground transition-colors duration-150 w-fit min-h-[48px]"
-          >
-            VIEW WORK <span className="text-lg leading-none">↓</span>
-          </a>
-        </div>
+        <p data-hero-lines className="max-w-[34ch] text-[0.95rem] leading-relaxed text-paper/70">
+          Frontend developer building subscription platforms, real-time data products and websites with React and
+          TypeScript. Swedish, based in Tbilisi.
+        </p>
       </div>
 
-      {/* Bottom bar */}
-      <div className="absolute bottom-6 left-4 right-4 sm:left-6 sm:right-6 md:left-12 md:right-12 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 font-mono-jb text-xs sm:text-[10px] text-muted-foreground tracking-[0.2em] uppercase">
-        <span>Based in Tbilisi, Georgia</span>
-        <span>Scroll to explore</span>
+      <div className="relative z-20 hidden items-end justify-between pb-6 lg:flex">
+        <span data-hero-meta className="label text-mute">
+          {profile.coords}
+        </span>
+        <span data-hero-meta className="label flex items-center gap-3 text-mute">
+          Scroll for the work
+          <span data-scroll-cue className="relative block h-10 w-px overflow-hidden bg-paper/20">
+            <span className="absolute inset-x-0 -top-1/2 h-1/2 bg-arc" />
+          </span>
+        </span>
+        <span data-hero-meta className="label text-mute">
+          Sweden → Georgia
+        </span>
       </div>
-
-      {/* Geometric accent */}
-      <div className="absolute bottom-[15%] left-[60%] w-32 h-32 md:w-48 md:h-48 border border-foreground/10 pointer-events-none" />
-      <div className="absolute bottom-[18%] left-[62%] w-32 h-32 md:w-48 md:h-48 bg-accent/5 pointer-events-none" />
     </section>
   );
 };

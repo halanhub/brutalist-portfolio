@@ -2,113 +2,144 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ------------------------------------------------------------------
+   Design tokens — "Live Wire"
+   Ink and paper with a single arc-orange signal colour.
+------------------------------------------------------------------- */
 @layer base {
   :root {
-    --background: 60 10% 96%;
-    --foreground: 0 0% 5%;
-    --card: 60 10% 96%;
-    --card-foreground: 0 0% 5%;
-    --popover: 60 10% 96%;
-    --popover-foreground: 0 0% 5%;
-    --primary: 0 0% 5%;
-    --primary-foreground: 60 10% 96%;
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 60 10% 96%;
-    --muted: 0 0% 85%;
-    --muted-foreground: 0 0% 40%;
-    --accent: 72 100% 50%;
-    --accent-foreground: 0 0% 5%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 5%;
-    --input: 0 0% 5%;
-    --ring: 0 0% 5%;
-    --radius: 0rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --ink: 11 11 10;
+    --paper: 236 233 226;
+    --mute: 138 135 128;
+    --arc: 255 79 26;
+    --line: rgb(var(--paper) / 0.14);
+
+    --gutter: clamp(1rem, 3.2vw, 3rem);
+    --nav-h: 4.25rem;
+
+    color-scheme: dark;
   }
 
-  .dark {
-    --background: 0 0% 5%;
-    --foreground: 60 10% 96%;
-    --card: 0 0% 5%;
-    --card-foreground: 60 10% 96%;
-    --popover: 0 0% 5%;
-    --popover-foreground: 60 10% 96%;
-    --primary: 60 10% 96%;
-    --primary-foreground: 0 0% 5%;
-    --secondary: 0 0% 80%;
-    --secondary-foreground: 0 0% 5%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 72 100% 50%;
-    --accent-foreground: 0 0% 5%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 80%;
-    --input: 0 0% 80%;
-    --ring: 0 0% 80%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
-  }
   html {
-    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-ink text-paper antialiased;
+    font-family: "Archivo", system-ui, sans-serif;
+    font-variation-settings: "wdth" 100;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgb(var(--arc));
+    color: rgb(var(--ink));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--arc));
+    outline-offset: 3px;
+  }
+
+  img {
+    -webkit-user-drag: none;
   }
 }
 
-@layer utilities {
-  .font-grotesk {
-    font-family: 'Space Grotesk', sans-serif;
+@layer components {
+  .gutter {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
   }
-  .font-mono-jb {
-    font-family: 'JetBrains Mono', monospace;
+
+  /* Small uppercase mono labels used for metadata throughout */
+  .label {
+    @apply font-mono uppercase;
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    line-height: 1.4;
+  }
+
+  /* Variable-width display type. --wdth is animated by GSAP. */
+  .display {
+    --wdth: 100;
+    font-family: "Archivo", system-ui, sans-serif;
+    font-variation-settings: "wdth" var(--wdth);
+    font-weight: 800;
+    line-height: 0.82;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+
+  .serif-i {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    text-transform: none;
+  }
+
+  /* Underline that wipes in from the left on hover */
+  .wipe {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .wipe:hover,
+  .wipe:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  .hairline {
+    border-color: var(--line);
+  }
+
+  /* Masked line wrapper produced by SplitText ({ mask: "lines" }) */
+  .split-line-mask {
+    padding-bottom: 0.06em;
+    margin-bottom: -0.06em;
   }
 }
 
-/* Marquee animation */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.animate-marquee {
-  animation: marquee 45s linear infinite;
-}
-
-/* Rotating stamp */
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-.animate-spin-slow {
-  animation: spin-slow 12s linear infinite;
+/* Film grain over the whole page — static SVG noise, no animation cost */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
-/* Sharp reveal animation */
-@keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 200;
+  transform: translateY(-200%);
+  @apply bg-arc text-ink label px-4 py-3;
+}
+.skip-link:focus {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
 }
-.animate-reveal {
-  animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
+
+/* Work: horizontal mode is switched on by GSAP only when it is pinned */
+.work-track.is-horizontal {
+  flex-direction: row;
+  width: max-content;
 }
