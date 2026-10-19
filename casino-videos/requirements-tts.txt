@@ -1,0 +1,7 @@
+# Optional Python tooling. Not needed when ELEVENLABS_API_KEY is set.
+#   faster-whisper   QA: transcribes narration to check pronunciation (scripts/qa/whisper_check.py)
+#   chatterbox-tts   free fallback voice engine (scripts/chatterbox_tts.py); needs Python 3.11,
+#                    CPU torch from https://download.pytorch.org/whl/cpu and setuptools<81
+faster-whisper
+chatterbox-tts
+setuptools<81
